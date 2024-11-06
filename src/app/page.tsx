@@ -15,18 +15,16 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="bg-slate-50 p-10 rounded-lg border-slate-300 shadow-xl border">
+    <div>
       <h1 className="text-2xl text-opacity-50 font-semibold my-3">Dinosaurs</h1>
       <p>Click on a dinosaur below to know more</p>
-      <ul>
+      <ul className="bx-ul">
         {
           dinosaurs.map((dinosaur: Dino) => {
             return (
               <li key={dinosaur.name}>
                 <div className="p-3">
-                    <svg width="30" height="30" className="inline"> 
-                      <circle cx="20" cy="20" r="5" fill="orange" />
-                    </svg>
+                  <i className={`bx bxs-right-arrow bx-xs`}></i>
                     <Link href={`/${dinosaur.name}`} className=" hover:bg-orange-50 border rounded-md p-2 bg-white shadow">
                     {dinosaur.name}
                   </Link>
@@ -36,7 +34,7 @@ export default function Home() {
           })
         }
       </ul>
-    </main>
+    </div>
   );
 }
 

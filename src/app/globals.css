@@ -1,21 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
 
 :root {
   --background: #ffffff;
   --foreground: #171717;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Poppins", sans-serif;
+}
+nav li{
+  padding: 1.2rem 1rem;
+  font-size: 1.2rem;
+  text-shadow: 1px 1px 1px rgba(0,0,0, 0.2);
+  border-bottom: 1px solid rgba(0,0,0, 0.1);
+}
+nav li:hover{
+  color: rgba(1, 106, 99, 0.7);
+  text-shadow: none;
+}
+.form-container{
+  @apply grid grid-cols-3 gap-3 mt-5 m-6;
+}
+.form-container div{
+  @apply mt-3 p-3;
+}
+.form-container input{
+  @apply p-2 border border-gray-300 rounded-md;
+}
+.form-container label{
+  @apply text-gray-500 mr-3;
+}
+.form-container button{
+  @apply p-2 bg-green-800 text-white rounded-md;
 }

@@ -1,17 +1,6 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
 import "./globals.css";
-
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -25,13 +14,42 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <div className="container mx-auto p-4">
-          {children}
-        </div>
+      <head>
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width" />
+        <title>IKC Helper</title>
+        <link rel="icon" href="/favicon.ico" />
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'></link>
+      </head>
+      <body>
 
+        <div className="container mx-auto p-4">
+          <div className="grid grid-cols-5 gap-3">
+            <div className="p-4">
+              <nav>
+                <div>
+                  <ul>
+                    <li>
+                      <Link href="/">
+                        <i className="bx bxs-home mr-2"></i>
+                        <span>Home</span>
+                      </Link>
+                    </li>
+                    <li className="text-gray-600">
+                      <Link href="/authenticate">
+                        <i className="bx bxs-key mr-2"></i>
+                        <span>Authenticate</span>
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
+              </nav>
+            </div>
+            <div className="bg-slate-50 rounded-lg border-slate-300 shadow-xl border col-span-4 p-3">
+              {children}
+            </div>
+          </div>
+        </div>
       </body>
     </html>
   );
